@@ -1,0 +1,21 @@
+Categoria,Dominio,Dimension,Item
+Ambiente de trabajo,Condiciones en el ambiente de trabajo,Condiciones peligrosas e inseguras,2
+Ambiente de trabajo,Condiciones en el ambiente de trabajo,Condiciones deficientes e insalubres,1
+Ambiente de trabajo,Condiciones en el ambiente de trabajo,Trabajos peligrosos,3
+Factores propios de la actividad,Carga de trabajo,Cargas cuantitativas,"4, 9"
+Factores propios de la actividad,Carga de trabajo,Ritmos de trabajo acelerado,"5, 6"
+Factores propios de la actividad,Carga de trabajo,Carga mental,"7,8"
+Factores propios de la actividad,Carga de trabajo,Cargas psicológicas emocionales,"41,42,43"
+Factores propios de la actividad,Carga de trabajo,Cargas de alta responsabilidad,"10, 11"
+Factores propios de la actividad,Carga de trabajo,Cargas contradictorias o inconsistentes,"12,13"
+Factores propios de la actividad,Falta de control sobre el trabajo,Falta de control y autonomía sobre el trabajo,"20, 21, 22"
+Factores propios de la actividad,Falta de control sobre el trabajo,Limitada o nula posibilidad de desarrollo,"18, 19"
+Factores propios de la actividad,Falta de control sobre el trabajo,Limitada o inexistente capacitación,"26, 27"
+Organización del tiempo de trabajo,Jornada de trabajo,Jornadas de trabajo extensas,"14,15"
+Organización del tiempo de trabajo,Interferencia en la relación trabajo- familia,Influencia del trabajo fuera del centro laboral,16
+Organización del tiempo de trabajo,Interferencia en la relación trabajo- familia,Influencia de las responsabilidades familiaresInfluencia de las responsabilidades familiares,17
+Liderazgo y relaciones en el trabajo,Liderazgo,Escasa claridad de funciones,"23,24,25"
+Liderazgo y relaciones en el trabajo,Liderazgo,Características del liderazgo,"28,29"
+Liderazgo y relaciones en el trabajo,Relaciones en el trabajo,Relaciones sociales en el trabajo,"30,31,32"
+Liderazgo y relaciones en el trabajo,Relaciones en el trabajo,Deficiente relación con los colaboradores que supervisa,"44,45,46"
+Liderazgo y relaciones en el trabajo,Violencia,Violencia laboral,"33, 34, 35, 36, 37, 38, 39, 40"
