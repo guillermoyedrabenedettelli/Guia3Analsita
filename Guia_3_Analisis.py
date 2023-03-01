@@ -4,13 +4,62 @@ from tkinter import filedialog
 import numpy as np
 import pandas as pd
 
+def rendimiento(sumaitem_,bajo,medio,alto):
+  r="fuera de rango"
+  #for i in range(len(sumaitem_)):
+  if sumaitem_ <= bajo[0]:
+    print("Despreciable"+" "+ str(sumaitem_))
+    r="Despreciable"
+  elif sumaitem_ >=bajo[0] and sumaitem_ <= bajo[1]:
+    print("Bajo"+" "+ str(sumaitem_))
+    r="Bajo"
+  elif sumaitem_ >=medio[0] and sumaitem_ <= medio[1]:
+    print("Medio"+" "+ str(sumaitem_))
+    r="Medio"
+  elif sumaitem_ >=alto[0] and sumaitem_ <=alto[1]:
+    print("Alto"+" "+ str(sumaitem_))
+    r="Alto"
+  elif sumaitem_ >= alto[1]:
+    print("Muy Alto"+" "+ str(sumaitem_))
+    r="Muy Alto"
+  else:
+    print(sumaitem_)
+  return r
 
+rangos_Dominio = [[[5,  9],[9, 11],[11,14]],
+                  [[5,  9],[9, 11],[11,14]],
+                  [[5,  9],[9, 11],[11,14]],
+                  [[15,21],[21,27],[27,37]],
+                  [[15,21],[21,27],[27,37]],
+                  [[15,21],[21,27],[27,37]],
+                  [[15,21],[21,27],[27,37]],
+                  [[15,21],[21,27],[27,37]],
+                  [[15,21],[21,27],[27,37]],
+                  [[11,16],[16,21],[21,25]],
+                  [[11,16],[16,21],[21,25]],
+                  [[11,16],[16,21],[21,25]],
+                  [[11,16],[16,21],[21,25]],
+                  [[1,  2],[2,  4],[4,  6]],
+                  [[4,  6],[6,  8],[8, 10]],
+                  [[4,  6],[6,  8],[8, 10]],
+                  [[9, 12],[12,16],[16,20]],
+                  [[9, 12],[12,16],[16,20]],
+                  [[10,13],[13,17],[17,21]],
+                  [[10,13],[13,17],[17,21]],
+                  [[7, 10],[10,13],[13,16]],
+                  [[6, 10],[10,14],[14,18]],
+                  [[6, 10],[10,14],[14,18]],
+                  [[4,  6],[6,  8],[8, 10]],
+                  [[4,  6],[6,  8],[8, 10]]]
+
+
+
+
+#####################################
 root = tk.Tk()
 root.withdraw()
 file_path = filedialog.askopenfilename()
 df = pd.read_pickle(file_path)
-
-# df = pd.read_pickle("gordo_Data.pkl")
 
 respuestas = df[['Siempre', 'Casi siempre','Algunas veces','Casi nunca','Nunca']]
 
@@ -20,7 +69,7 @@ for i in range(0,len(respuestas)):
     for j in range(0,len(respuestas.iloc[i])):
         if respuestas.iloc[i][j] == 1:
             x+=1
-            print(x)
+            #print(x)
             vector.append(j+1)
             break
 
@@ -37,7 +86,7 @@ max_=0
 for i in range(len(itemsNormals)):
     if itemsInvert[i] >= len(b):
       max_=i
-      print(max_)
+      #print(max_)
       break
 
 for i in range(len(itemsNormals)):
@@ -58,7 +107,7 @@ max_=0
 for i in range(len(itemsInvert)):
     if itemsInvert[i] >= len(b):
       max_=i
-      print(max_)
+      #print(max_)
       break
 
 for i in range(max_):
@@ -119,4 +168,10 @@ for i in range(len(itemTabla3Sums)):
 tabla3["Item"]=sumaitems
 print(tabla3)
 
+resultados_dominios=[]
+for i in range(len(sumaitems)):
+    resultados_dominios.append(rendimiento(sumaitems[i],rangos_Dominio[i][0],rangos_Dominio[i][1],rangos_Dominio[i][2]))
+
+tabla3["Resultados Dominios"]=resultados_dominios
+print(tabla3)
 tabla3.to_csv("Resultados_Tabla_3_.csv")
