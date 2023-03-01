@@ -127,7 +127,7 @@ print(respuetasnumericas)
 Csum=0
 for i in range(len(respuetasnumericas)):
     Csum += respuetasnumericas[i]
-Csum
+
 
 print("Calificación final del cuestionario")
 if Csum <= 50:
