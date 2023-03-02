@@ -1,3 +1,3 @@
-Respuesta_Analisis_Prueba.csv
-Resultados_Tabla_3_Prueba.csv
+*.csv
 *.pkl
+*/Templates/
