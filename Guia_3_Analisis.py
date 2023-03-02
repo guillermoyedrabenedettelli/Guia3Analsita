@@ -54,6 +54,32 @@ rangos_Dominio = [[[5,  9],[9, 11],[11,14]],
 
 
 
+resultadosPorCategoria=[[[5,  9],[9, 11],[11,14]],
+                        [[5,  9],[9, 11],[11,14]],
+                        [[5,  9],[9, 11],[11,14]],
+                        [[15,30],[30,45],[45,60]],
+                        [[15,30],[30,45],[45,60]],
+                        [[15,30],[30,45],[45,60]],
+                        [[15,30],[30,45],[45,60]],
+                        [[15,30],[30,45],[45,60]],
+                        [[15,30],[30,45],[45,60]],
+                        [[15,30],[30,45],[45,60]],
+                        [[15,30],[30,45],[45,60]],
+                        [[15,30],[30,45],[45,60]],
+                        [[15,30],[30,45],[45,60]],
+                        [[5,  7],[7, 10],[10,13]],
+                        [[5,  7],[7, 10],[10,13]],
+                        [[5,  7],[7, 10],[10,13]],
+                        [[14,29],[29,42],[42,58]],
+                        [[14,29],[29,42],[42,58]],
+                        [[14,29],[29,42],[42,58]],
+                        [[14,29],[29,42],[42,58]],
+                        [[14,29],[29,42],[42,58]],
+                        [[10,14],[14,18],[18,23]],
+                        [[10,14],[14,18],[18,23]],
+                        [[10,14],[14,18],[18,23]],
+                        [[10,14],[14,18],[18,23]]]
+
 
 #####################################
 root = tk.Tk()
@@ -146,7 +172,7 @@ analisis = df.iloc[:,:0].assign(Respuestas = list(respuetasnumericas))
 print(analisis)
 analisis.to_csv("Respuesta_Analisis_Prueba.csv")
 
-tabla3 = pd.read_csv("Tabla3_Guia3.csv", encoding= 'ISO-8859-1', low_memory=False)
+tabla3 = pd.read_csv("Templates/Tabla3_Guia3.csv", encoding= 'ISO-8859-1', low_memory=False)
 #itemTabla2Sums=[[2],[1],[3],[4, 9],[5, 6],[7,8],[41,42,43],[10, 11],[12,13],[20, 21, 22],[18, 19],[26, 27],[14,15],[16],[17],[23,24,25],[28,29],[30,31,32],[44,45,46],[33, 34, 35, 36, 37, 38, 39, 40]]
 itemTabla3Sums = [[1,3],[2,4],[5],[6,12],[7,8],[9,10,11],[65,66,67,68],[13,14],[15,16],[25,26,27,28],[23, 24],[29, 30],[35, 36],[17, 18],[19, 20],[21, 22],[31, 32, 33, 34],[37, 38, 39, 40, 41],[42, 43, 44, 45, 46],[69, 70, 71, 72],[57, 58, 59, 60, 61, 62,63, 64],[47, 48],[49, 50, 51, 52],[55, 56],[53, 54]]
 
@@ -165,13 +191,35 @@ for i in range(len(itemTabla3Sums)):
     #print(total)        
     sumaitems.append(total)
 
-tabla3["Item"]=sumaitems
+tabla3["Resultados de dimenciones"]=sumaitems
 print(tabla3)
 
 resultados_dominios=[]
+resultados_competencias=[]
 for i in range(len(sumaitems)):
     resultados_dominios.append(rendimiento(sumaitems[i],rangos_Dominio[i][0],rangos_Dominio[i][1],rangos_Dominio[i][2]))
 
 tabla3["Resultados Dominios"]=resultados_dominios
 print(tabla3)
+
+indices_Categoria=[[0,2],[3,12],[13,15],[16,20],[20,24]]
+for i in range(len(indices_Categoria)):
+    sumaCategoria=0
+    for j in range(indices_Categoria[i][0],indices_Categoria[i][1]+1):
+        #print(j)
+        sumaCategoria += sumaitems[j]
+    resultados_competencias.append(sumaCategoria)
+
+rango_Competencias = []
+for i in range (len(resultados_competencias)):
+    rango_Competencias.append(rendimiento(resultados_competencias[i],resultadosPorCategoria[i][0],resultadosPorCategoria[i][1],resultadosPorCategoria[i][2]))  
+print(rango_Competencias)  
+
+categoriaResultados=pd.read_csv("Templates/Tabla3_Guia3_Categoria.csv")
+categoriaResultados["Resultados Categorias"]=rango_Competencias
+
+print(categoriaResultados)
+
+
+categoriaResultados.to_csv("Resultados_de_Categoria.csv")
 tabla3.to_csv("Resultados_Tabla_3_.csv")
